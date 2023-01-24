@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@Controller
+
 @RestController
 @RequestMapping("/department")
 public class DepartmentController {
@@ -24,9 +24,9 @@ public class DepartmentController {
     }
 
     @PostMapping
-    public String addDep(@RequestBody Department newDep) {
-        DepService.addDep(newDep);
-        return "Save Department Success";
+    public String newDept(@RequestBody Department newDep) {
+          DepService.addDep(newDep);
+        return  "add new Department";
     }
 @PutMapping
     public String updateDep(@RequestBody Department newDep) {
