@@ -5,7 +5,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "Employees")
-public class Employees {
+public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  long id;
@@ -55,7 +55,7 @@ public class Employees {
         this.address = address;
     }
 
-    public Employees(long id, String firstName, String lastName, double salary, String address) {
+    public Employee(long id, String firstName, String lastName, double salary, String address) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -63,6 +63,6 @@ public class Employees {
         this.address = address;
     }
 
-    public Employees() {
+    public Employee() {
     }
 }
