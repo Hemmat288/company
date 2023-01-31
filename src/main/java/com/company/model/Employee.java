@@ -1,68 +1,32 @@
 package com.company.model;
 
 
+import lombok.*;
+import org.hibernate.engine.internal.Cascade;
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "Employees")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
+//@NamedQuery(name = "Employee.findBySalary",query = "select emp from employee emp where emp.salary>=:salary")
 public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  long id;
     @Column(name = "First_Name")
+    @NotEmpty(message = "first name must not be empty")
     private String firstName;
     private String lastName;
     private double salary;
     private String address;
+    @ManyToOne(cascade=CascadeType.ALL)
+private  Department Dep;
 
-    public long getId() {
-        return id;
-    }
 
-    public void setId(long id) {
-        this.id = id;
-    }
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public Employee(long id, String firstName, String lastName, double salary, String address) {
-        this.id = id;
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.salary = salary;
-        this.address = address;
-    }
-
-    public Employee() {
-    }
 }

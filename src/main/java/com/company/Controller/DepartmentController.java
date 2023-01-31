@@ -14,6 +14,9 @@ import java.util.List;
 public class DepartmentController {
     @Autowired
     DeparmentService DepService;
+
+
+
 @GetMapping("/all")
     public List<Department> getAll() {
         return DepService.getAll();
