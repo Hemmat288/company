@@ -6,6 +6,8 @@ import org.hibernate.engine.internal.Cascade;
 import org.hibernate.validator.constraints.NotEmpty;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "Employees")
@@ -23,6 +25,9 @@ public class Employee {
     private String firstName;
     private String lastName;
     private double salary;
+    @NotBlank
+    @Size(min = 0, max = 50)
+
     private String address;
     @ManyToOne(cascade=CascadeType.ALL)
 private  Department Dep;

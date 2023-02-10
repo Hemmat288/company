@@ -6,6 +6,11 @@ import com.company.model.Department;
 import com.company.model.Employee;
 //import com.example.video4.Services.EmployeesService;
 //import com.example.video4.hr.model.Employees;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/employee")
+
 public class EmployeesController {
     @Autowired
     private EmployeesService employeesService;
@@ -45,6 +51,16 @@ public class EmployeesController {
 //
 //        return  ResponseEntity.ok(employeesService.findEmpBySalary(salary)) ;
 //    }
+
+    @Operation(summary = "Get a Employee by its id")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Found the Employee",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = Employee.class)) }),
+            @ApiResponse(responseCode = "400", description = "Invalid id supplied",
+                    content = @Content),
+            @ApiResponse(responseCode = "404", description = "Employee not found",
+                    content = @Content) })
     @GetMapping("/getEmpById")
     public Employee getEmployee(@RequestParam Long id) {
 
