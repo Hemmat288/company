@@ -11,12 +11,14 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import net.sf.jasperreports.engine.JRException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 @RestController
@@ -31,6 +33,11 @@ public class EmployeesController {
 //    public List<Employee> getAllEmpByDepId(@PathVariable Long depId) {
 //        return employeesService.getByDepId(depId);
 //    }
+
+
+
+
+@Operation(summary = "Get All  Employees  ")
     @GetMapping("/allEmployees")
     public  List<Employee> getAllEmployees() {
 

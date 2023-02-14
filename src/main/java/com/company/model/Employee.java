@@ -20,8 +20,8 @@ public class Employee {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private  long id;
-    @Column(name = "First_Name")
-    @NotEmpty(message = "first name must not be empty")
+
+//    @NotEmpty(message = "first name must not be empty")
     private String firstName;
     private String lastName;
     private double salary;

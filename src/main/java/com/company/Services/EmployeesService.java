@@ -5,10 +5,17 @@ import com.company.model.Employee;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import net.bytebuddy.dynamic.scaffold.TypeWriter;
+import net.sf.jasperreports.engine.*;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ResourceUtils;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @RequiredArgsConstructor
@@ -16,6 +23,7 @@ import java.util.List;
 public class EmployeesService {
 
     final EmployeesRepository employeesRepository;
+
 
 //    public List<Employee> getByDepId(Long DepId) {
 //       return employeesRepository.findAllByDep_id(DepId);

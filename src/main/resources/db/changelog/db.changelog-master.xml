@@ -7,6 +7,7 @@
     http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
 
+    <include file="db/changelog/٢٠٢٣/٠٢/١٣-01-changelog.xml"/>
     <changeSet id="1675123837788-1" author="Microsoft">
         <insert tableName="test" schemaName="">
             <column name="id" valueSequenceNext="hibernate_sequence"/>
